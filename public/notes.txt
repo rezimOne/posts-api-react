@@ -1,0 +1,125 @@
+Prosimy o rozwiązanie zadania, które ma na celu przygotowanie interfejsu do obsługi API.
+
+Źródło danych - API REST https://jsonplaceholder.typicode.com Technologia: Vue + CSS (koniecznie preprocesor)
+
+Użyj state management vuex.
+
+Wyświetlanie listy postów z paginacją po 10 szt.
+
+Poszczególny post ma wyświetlać następujące dane:
+
+a. Tytuł
+
+b. Skróconą treść z możliwością kliknięcia „zobacz więcej”
+
+c. Imię i nazwisko autora
+
+d. Przycisk do usuwania newsa Paginacja ma działać bez przeładowania strony.
+
+
+
+Ocenie będzie podlegać jakość i czytelność kodu, estetyka rozwiązania, RWD i podejście do zagadnień pobierania/wysyłania danych oraz samej architektury. Prosimy o przesłanie rozwiązanego zadania (najlepiej w formie linku do publicznego repozytorium)
+
+Zadanie z kangurkiem/gwiazdką: możliwość sortowania, filtrowania i wyszukiwania w liście postów.
+
+REALIZACJA
+1. Podstawowe środowisko React
+2. Budowa komponentów
+3. Lista postów
+4. Komponenty
+    Komponent Posts
+    Komponent PostItem
+5. Tworzę data.json
+6. Tworzę zmienną posts przypisując jej zaimportowany json
+7. Defuniuję <PostItem items = {posts} />
+8. W komponencie Posts, dla poszczególnych PostItem określam items tabeli podając index oraz odwołując się do nazwy pola.
+props to właściwości obiektu
+
+
+
+przykład: FetchComonent.js
+
+
+import React, { Component } from "react";
+const apiURL = 'https://hn.algolia.com/api/v1/search?query='
+
+class FetchComponent extends Component {
+  constructor(props){
+    super(props);
+
+    this.state = {
+      users: [],
+    };
+  }
+
+
+
+  componentDidMount(){
+    fetch(apiURL)
+    .then(response => response.json())
+    .then(data => this.setState({users: data.name}));
+  }
+
+
+
+render() {
+  const {users}  = this.state;
+
+  return (
+    <ul>{users.map((item, index) => (
+      <li key={index}>
+          {item.name}
+      </li>
+      ))}
+    </ul>
+  );
+}
+}
+
+export default FetchComponent;
+
+FETCH
+//fetch do Api
+  //AJAX wysyła asynchroniczne nieblokujace zapytanie do serwera. Wysylamy i czekamy.
+  //XMLHTTPREQUEST - technika AJAXa, obiekt z metodami, np metoda fetch
+  //fetch to ządanie asynchroniczne, zwraca stringa
+  //fetch tworzy obietnice. na poczatku jest stan nierozstrzygniety.
+  //obietnica to obiekt ze stanem nierzstrzygniety. jak dostaniemy
+  //odpowiedz z zserwera to albo spelniona albo odrzucona
+
+    //sic dolar przez zmienna powiazana z inputem oznacz template string
+
+    // fetch(apiURL)
+    // //Odpowiedz z serwera to Response. fetch dba o to by wrocila odpowiedz. po otrzymaniu odpowiedzi
+    // //wykonujemy metode metode .then
+    // //then przyjmuje jeden argument, który okresla pozytywne rozstrzygnięcie
+    // //piszemy poprostu ze w thenie cos do nas wraca. jest to Response, który opisujemy jako 'res' (obiekt)
+    // // .then(res => console.log(res)). w consoli widzimy ze sie Response wykonał status: 200
+    // //ale danych nie mamy bo mamy ukryty response. musimy zastosować na nim metodę json()
+    // .then(response => response.json())//tu wyodrebniamy naszą odpowiedź
+    //   //i kolejny promis. łańsuch promisów. wywolany zostanie kolejny then. rozstrzygniecie z poprzedniemgo then pojawi sie w tym thenie
+    // .then(data => setName(data[1].name))
+    // .catch(error => console.log("Ups!Treść błędu: " + error))//obslugujemy obietnite, która sie nie spełniła. jak sie nie spelnila to wywoluje sie metoda catch i cos mozemy zrobic z tym bledem. obsluga niespelnionego rozstrzygniecia
+
+    // function App(){
+
+    //   const posts = require('./data.json');
+    //   const [name, setName] = useState(null)
+    //   const apiURL = "https://jsonplaceholder.typicode.com/users"
+
+    //   const fetchData = () => {
+    //   fetch(apiURL)
+    //   .then(response => response.json())
+    //   .then(data => setName(data[2].name))
+    //   .catch(error => console.log("Ups!Treść błędu: " + error))
+    //   }
+
+    //   fetchData();
+
+    //   return(
+    //     <div>
+    //       <Posts items = {posts} />
+    //       <p className="names">Z API: {name}</p>
+    //     </div>
+    //   );
+    // }
