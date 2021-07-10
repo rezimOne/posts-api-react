@@ -4,11 +4,11 @@ import Card from './Card';
 
 function PostItem(props){
   return(
-    <Card className="user-item">
-      <div className='post-item'>
-        <div className='post-item-title'>Title: {props.title}</div>
+    <Card className="post-item">
+        <div className='post-item-name'>{props.name}</div>
+        <div className='post-item-title'>{props.title}</div>
         <div className='post-item-body'>{props.body}</div>
-      </div>
+        <button className='delButton'>DELETE</button>
     </Card>
   );
 }

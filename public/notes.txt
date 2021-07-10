@@ -123,3 +123,23 @@ FETCH
     //     </div>
     //   );
     // }
+
+
+    let myUsers = users.map(user => (
+  {
+    id: user.id,
+    name: user.name
+  }
+))
+console.log(myUsers);
+
+let myPosts = posts.map(post => (
+  {
+    userId: post.userId,
+    title: post.title,
+    body: post.body
+  }
+))
+console.log(myPosts);
+console.log(myUsers);
+

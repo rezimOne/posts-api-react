@@ -1,4 +1,5 @@
-import Posts from './components/Posts'
+import Posts from './components/Posts';
+import './App.css';
 
 function App(){
   return (

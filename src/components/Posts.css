@@ -1,8 +1,6 @@
 .posts-box{
-  background-color: rgb(170, 128, 72);
-  height:80vh;
   border-radius: 10px;
-  box-sizing: border-box;
-  margin: 10px;
+  margin: 5px;
   padding: 5px;
+  font-family: 'Roboto', sans-serif;
 }
