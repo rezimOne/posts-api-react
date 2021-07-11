@@ -1,12 +1,41 @@
-.card{
+.post-item{
   background-color: rgb(167, 166, 145);
-  border-radius: 10px;
-  margin: 10px;
+  border-radius: 20px;
+  margin: 20px 80px;
   padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.post-item-name{
+  color: rgb(35, 73, 107);
+}
+
+.post-item-title{
+  font-weight: bold;
+  text-align: center;
+  padding: 5px;
 }
 
 .post-item-body{
-  background-color: rgb(243, 231, 180);
+  background-color: rgb(245, 238, 210);
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 20px;
+  position: relative;
+  width: 95%;
 }
+
+.delButton{
+  width: 30px;
+  height: 30px;
+  background-color:rgb(233, 236, 201) ;
+  border-radius: 30px;
+  position: absolute;
+  right: 90px;
+  display: block;;
+}
+
+
+
+

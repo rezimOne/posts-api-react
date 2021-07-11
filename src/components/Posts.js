@@ -39,7 +39,7 @@ function Posts(){
     {
       title: post.title,
       body: post.body,
-      ...users.find(user => user.id === post.userId)
+      ...users.find(user => user.id === post.userId)//
     }
   ));
 
