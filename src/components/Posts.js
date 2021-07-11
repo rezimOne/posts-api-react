@@ -5,7 +5,6 @@ import React, {useEffect, useState} from "react";
 function Posts(){
   const [users, setUsers] = useState([]);
   const [posts, setPosts] = useState([]);
-  //useState pusta tablica ussers (poniej na niej robimy map())
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
 
